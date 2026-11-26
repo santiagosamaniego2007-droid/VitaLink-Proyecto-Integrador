@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-
+// Autora de la traduccion a Java: Maybelin Micaela Herrera Niebla.
+// Proyecto integrador VitaLink - Grupo 2.
 public class Vitalink1 {
     static Scanner entrada = new Scanner(System.in);
 

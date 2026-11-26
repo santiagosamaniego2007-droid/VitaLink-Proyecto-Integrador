@@ -6,8 +6,8 @@ Prototipo académico de recordatorios de medicamentos. No es un dispositivo méd
 
 | Carpeta | Contenido |
 |---|---|
-| PSeInt | Pendiente de incorporar pseudocódigo definitivo |
-| Java | Programa de consola, instrucciones y caso de prueba |
+| PSeInt | Pseudocódigo definitivo aportado por el equipo |
+| Java | Versión de referencia de consola; traducción definitiva del equipo pendiente |
 | Electrónica | Firmware ESP32 de referencia, configuración y calibración HX711 |
 
 La copia electrónica requiere configuración local y validación física. No contiene credenciales de producción. Simulación Wokwi: https://wokwi.com/projects/480154074228245505.

@@ -1,25 +1,25 @@
 # VITALINK en Java — conversión de la simulación PSeInt
 
-Este proyecto es una **versión Java de consola** del algoritmo `Vitalink` del proyecto 14, no una aplicación Android nueva ni una aplicación médica validada. Traduce las funciones `EsDigito`, `ValidarHorario`, `ContarPorEstado`, los 7 subprocesos y las 7 opciones de menú de la versión PSeInt recuperada del proyecto.
+Esta es la **versión Java de consola aportada por el equipo** del algoritmo `Vitalink` del proyecto 14, no una aplicación Android nueva ni una aplicación médica validada. Traduce las funciones `EsDigito`, `ValidarHorario`, `ContarPorEstado`, los 7 subprocesos y las 7 opciones de menú de la versión PSeInt recuperada del proyecto.
 
 ## Cómo ejecutarlo en Windows
 
 1. Instala un JDK, por ejemplo [Eclipse Temurin JDK 21](https://adoptium.net/). Alternativamente usa IntelliJ IDEA con un JDK configurado.
-2. Descomprime la carpeta y abre una terminal (PowerShell o Símbolo del sistema) dentro de `Vitalink-Java-PSeInt`.
+2. Abre una terminal (PowerShell o Símbolo del sistema) dentro de la carpeta `Java`.
 3. Ejecuta:
 
 ```bash
-javac -encoding UTF-8 Vitalink.java
-java Vitalink
+javac -encoding UTF-8 Vitalink1.java
+java Vitalink1
 ```
 
-También puedes abrir `Vitalink.java` en **IntelliJ IDEA** como proyecto Java sencillo y ejecutar `main` (puede requerir configurar el JDK).
+También puedes abrir `Vitalink1.java` en **IntelliJ IDEA** como proyecto Java sencillo y ejecutar `main` (puede requerir configurar el JDK).
 
 ## Relación PSeInt → Java
 
 | PSeInt | Java |
 |---|---|
-| `Algoritmo Vitalink` | clase `Vitalink` y `main` |
+| `Algoritmo Vitalink` | clase `Vitalink1` y `main` |
 | `Funcion ValidarHorario` | método `validarHorario` que devuelve `boolean` |
 | `Funcion ContarPorEstado` | método `contarPorEstado` que devuelve `int` |
 | `SubProceso MostrarMenu` | método `void mostrarMenu()` |
@@ -28,10 +28,10 @@ También puedes abrir `Vitalink.java` en **IntelliJ IDEA** como proyecto Java se
 | `Mientras` | `while` |
 | `Repetir ... Hasta Que` | `do { ... } while (...)` (condición invertida) |
 | `Para` | `for` |
-| `Dimension medicamentos[10]` | `String[] medicamentos = new String[11]` |
-| `Dimension horarios[10,3]` | `String[][] horarios = new String[11][4]` |
+| `Dimension medicamentos[10]` | `String[] medicamentos = new String[10]` |
+| `Dimension horarios[10,3]` | `String[][] horarios = new String[10][3]` |
 
-**Índices:** se reservó una posición extra para utilizar los índices 1..10 y 1..3, como en el pseudocódigo PSeInt original. En Java normal se suele empezar desde 0. En una versión posterior puede adaptarse.
+**Índices:** Java utiliza índices desde 0 (0..9 y 0..2); el menú conserva la numeración desde 1. El historial utiliza 30 posiciones. Se añade `leerEntero()` para validar entradas numéricas y se eliminan espacios exteriores del nombre con `trim()`.
 
 ## Qué hace el programa
 
@@ -69,8 +69,12 @@ Puedes usar los datos ficticios del archivo `prueba_normal.txt` para automatizar
 - Solo guarda datos en memoria hasta salir del programa. No tiene cuentas, notificaciones reales, ESP32, base de datos ni sincronización con Netlify.
 - El historial replica el estado más reciente de cada aviso en una **ronda**, sin guardar múltiples días: no es un registro clínico ni un historial persistente.
 - Para Android e iOS utiliza en paralelo el proyecto **Capacitor** de Vitalink, que permite recuperar la web original y aprovechar HTML/CSS/JS.
-- Si el equipo modifica el pseudocódigo final, se deben aplicar los mismos cambios a este Java antes de presentar equivalencia exacta.
+- Si se modifica el pseudocódigo, revisar la correspondencia con Java. Las operaciones y estados coinciden en la revisión de la lógica; la comparación ejecutada lado a lado en PSeInt queda pendiente.
 
 ### Correspondencia con la guía
 
 La guía del proyecto 14 exige siete operaciones, validación de `HH:MM`, seis estructuras de control, arreglos, matrices, subprocesos y funciones. Esta versión Java reproduce esos conceptos de la simulación; no sustituye la entrega PSeInt ni el diagrama del Avance 3.
+
+## Verificación del código recibido
+
+Compilado con `javac -encoding UTF-8 Vitalink1.java`. Pruebas de consola ejecutadas: registro, emisión, confirmación e historial; entradas inválidas; capacidad de 10 medicamentos y 30 horarios, sin reemitir avisos ya gestionados. Los tres grupos terminaron sin errores. Estas pruebas no validan el hardware ni sustituyen una ejecución comparativa con PSeInt.

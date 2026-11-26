@@ -7,7 +7,7 @@ Prototipo académico de recordatorios de medicamentos. No es un dispositivo méd
 | Carpeta | Contenido |
 |---|---|
 | PSeInt | Pseudocódigo definitivo aportado por el equipo |
-| Java | Versión de referencia de consola; traducción definitiva del equipo pendiente |
+| Java | Traducción Java de consola aportada por el equipo (`Vitalink1.java`) |
 | Electrónica | Firmware ESP32 de referencia, configuración y calibración HX711 |
 
 La copia electrónica requiere configuración local y validación física. No contiene credenciales de producción. Simulación Wokwi: https://wokwi.com/projects/480154074228245505.

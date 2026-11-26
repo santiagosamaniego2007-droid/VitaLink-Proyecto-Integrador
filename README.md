@@ -10,7 +10,7 @@ Prototipo académico de recordatorios de medicamentos. No es un dispositivo méd
 | Java | Programa de consola, instrucciones y caso de prueba |
 | Electrónica | Firmware ESP32 de referencia, configuración y calibración HX711 |
 
-La copia electrónica requiere configuración local y validación física. No contiene credenciales de producción. La simulación Wokwi está pendiente de incorporar.
+La copia electrónica requiere configuración local y validación física. No contiene credenciales de producción. Simulación Wokwi: https://wokwi.com/projects/480154074228245505.
 
 Web publicitaria: https://web.vitalink-ec.xyz/
 
